@@ -26,7 +26,6 @@
         .university-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1); }
         .hidden-section { display: none !important; }
         
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
@@ -44,7 +43,7 @@
     <header class="bg-white/80 backdrop-blur-md text-indigo-900 p-3 shadow-sm sticky top-0 z-50 border-b border-indigo-100">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
             <h1 class="text-xl md:text-2xl font-game flex items-center tracking-wider text-indigo-600 cursor-pointer hover:text-indigo-800 transition" onclick="location.reload()">
-                <i class="fas fa-paper-plane mr-2 animate-bounce"></i>합격의 신 v6.2
+                <i class="fas fa-paper-plane mr-2 animate-bounce"></i>합격의 신 v6.3
             </h1>
             <div id="status-bar" class="hidden text-xs md:text-sm flex flex-wrap justify-center gap-3 transition-all duration-300">
                 <span class="bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200 text-indigo-700 shadow-sm"><i class="fas fa-user mr-1"></i> <span id="display-name" class="font-bold">수험생</span></span>
@@ -76,19 +75,25 @@
                 <h1 class="text-4xl font-game text-slate-800 mb-2 tracking-tight">합격의 신</h1>
                 <h2 class="text-xl font-game text-indigo-500 mb-6">: 나는 어디로 갈까? 🤔</h2>
 
-                <form id="profile-form" class="space-y-5 text-left">
-                    <div class="group">
-                        <label class="block text-xs font-bold text-slate-400 mb-1 ml-2 uppercase tracking-wider">Player Name</label>
-                        <input type="text" id="input-name" class="w-full bg-slate-50 border-2 border-slate-100 p-3.5 rounded-2xl focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100 outline-none font-bold text-center text-slate-700 transition-all placeholder:text-slate-300" placeholder="이름을 입력하세요" required>
+                <form id="profile-form" class="space-y-4 text-left">
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="group">
+                            <label class="block text-xs font-bold text-slate-400 mb-1 ml-2 uppercase tracking-wider">이름</label>
+                            <input type="text" id="input-name" class="w-full bg-slate-50 border-2 border-slate-100 p-3 rounded-2xl focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100 outline-none font-bold text-center text-slate-700 transition-all placeholder:text-slate-300" placeholder="홍길동" required>
+                        </div>
+                        <div class="group">
+                            <label class="block text-xs font-bold text-slate-400 mb-1 ml-2 uppercase tracking-wider">출신 고교</label>
+                            <input type="text" id="input-school" class="w-full bg-slate-50 border-2 border-slate-100 p-3 rounded-2xl focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100 outline-none font-bold text-center text-slate-700 transition-all placeholder:text-slate-300" placeholder="OO고등학교" required>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-2 gap-3">
                         <div>
                             <label class="block text-xs font-bold text-slate-400 mb-1 ml-2">내신 (1.0~9.0)</label>
-                            <input type="number" id="input-gpa" step="0.1" min="1.0" max="9.0" class="w-full bg-slate-50 border-2 border-slate-100 p-3.5 rounded-2xl focus:border-green-400 focus:bg-white focus:ring-4 focus:ring-green-100 outline-none font-bold text-center text-slate-700 transition-all placeholder:text-slate-300" placeholder="3.5" required>
+                            <input type="number" id="input-gpa" step="0.1" min="1.0" max="9.0" class="w-full bg-slate-50 border-2 border-slate-100 p-3 rounded-2xl focus:border-green-400 focus:bg-white focus:ring-4 focus:ring-green-100 outline-none font-bold text-center text-slate-700 transition-all placeholder:text-slate-300" placeholder="3.5" required>
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-400 mb-1 ml-2">모의고사 (%)</label>
-                            <input type="number" id="input-sat" min="0" max="100" class="w-full bg-slate-50 border-2 border-slate-100 p-3.5 rounded-2xl focus:border-purple-400 focus:bg-white focus:ring-4 focus:ring-purple-100 outline-none font-bold text-center text-slate-700 transition-all placeholder:text-slate-300" placeholder="85" required>
+                            <input type="number" id="input-sat" min="0" max="100" class="w-full bg-slate-50 border-2 border-slate-100 p-3 rounded-2xl focus:border-purple-400 focus:bg-white focus:ring-4 focus:ring-purple-100 outline-none font-bold text-center text-slate-700 transition-all placeholder:text-slate-300" placeholder="85" required>
                         </div>
                     </div>
                     <button type="submit" class="w-full bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-black py-4 rounded-2xl shadow-lg shadow-indigo-200 transition-all active:scale-95 text-lg mt-4 flex justify-center items-center gap-2 group">
@@ -130,7 +135,7 @@
             </div>
         </section>
 
-        <!-- Scene 3: Susi Application (Fix for Mobile) -->
+        <!-- Scene 3: Susi Application -->
         <section id="scene-susi" class="hidden-section slide-in w-full max-w-6xl">
             <div class="text-center mb-8">
                 <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold mb-2 inline-block">STEP 1</span>
@@ -139,9 +144,8 @@
                 <p class="text-xs text-red-400 mt-1">* 1장만 지원해도 접수 가능합니다.</p>
             </div>
 
-            <!-- Changed height to h-auto lg:h-[600px] for mobile support -->
             <div class="flex flex-col lg:flex-row gap-6 h-auto lg:h-[600px]">
-                <!-- University List: Set specific height for mobile -->
+                <!-- University List -->
                 <div class="lg:w-2/3 flex flex-col h-[500px] lg:h-full bg-white rounded-3xl shadow-lg p-6 border border-slate-100">
                     <div class="flex gap-2 mb-4 overflow-x-auto pb-2 flex-shrink-0 scrollbar-hide">
                         <button class="filter-btn active bg-slate-800 text-white px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap transition" data-filter="all">전체보기</button>
@@ -160,7 +164,6 @@
                         <h3 class="font-bold text-xl text-slate-800 font-game">내 원서함</h3>
                         <span class="text-indigo-600 font-black"><span id="susi-count">0</span>/6</span>
                     </div>
-                    <!-- Allow cart to grow on mobile but scroll on desktop/fixed height -->
                     <div class="flex-grow overflow-y-auto bg-slate-50 rounded-2xl p-3 mb-4 inner-shadow min-h-[150px] lg:min-h-0">
                         <ul id="susi-cart" class="space-y-2 text-sm">
                             <li class="text-center py-10 text-slate-400 text-sm flex flex-col items-center opacity-70">
@@ -317,7 +320,7 @@
                     <h3 class="font-bold text-slate-700 mb-4 border-b border-slate-200 pb-2 text-sm uppercase tracking-wider"><i class="fas fa-file-invoice mr-2"></i>최종 성적표</h3>
                     <div class="grid grid-cols-2 gap-6 text-sm">
                         <div><span class="text-slate-400 block text-xs mb-1">수험생</span> <span class="font-bold final-name text-lg text-slate-800"></span></div>
-                        <div><span class="text-slate-400 block text-xs mb-1">출신고교</span> <span class="font-bold text-slate-800">캔버스고등학교</span></div>
+                        <div><span class="text-slate-400 block text-xs mb-1">출신고교</span> <span class="font-bold text-slate-800 final-school-display"></span></div>
                         <div><span class="text-slate-400 block text-xs mb-1">최종 내신</span> <span class="font-bold text-blue-600 text-lg final-gpa-display"></span></div>
                         <div><span class="text-slate-400 block text-xs mb-1">수능 백분위</span> <span class="font-bold text-purple-600 text-lg final-sat-display"></span>%</div>
                     </div>
@@ -484,7 +487,7 @@
         ];
 
         // Game State
-        let player = { name: "", gpa: 0, sat: 0 };
+        let player = { name: "", school: "", gpa: 0, sat: 0 };
         let currentQuizQueue = [];
         let currentRound = 0;
         let consecutiveCorrect = 0;
@@ -522,6 +525,7 @@
         document.getElementById('profile-form').addEventListener('submit', (e) => {
             e.preventDefault();
             player.name = document.getElementById('input-name').value;
+            player.school = document.getElementById('input-school').value;
             player.gpa = parseFloat(document.getElementById('input-gpa').value);
             player.sat = parseInt(document.getElementById('input-sat').value);
             document.getElementById('status-bar').classList.remove('hidden');
@@ -911,6 +915,7 @@
         function showFinal() {
             switchScene('scene-final');
             document.querySelector('.final-name').innerText = player.name;
+            document.querySelector('.final-school-display').innerText = player.school;
             document.querySelectorAll('.final-gpa-display').forEach(e=>e.innerText=player.gpa.toFixed(2));
             document.querySelectorAll('.final-sat-display').forEach(e=>e.innerText=player.sat);
             
